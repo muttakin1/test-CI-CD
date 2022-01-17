@@ -31,6 +31,10 @@ app.post('/article/new', function (request, response) {
     })
 })
 
+app.get('/', function (request, response) {
+    console.log("hello world")
+})
+
 app.get('/articles/all', function (request, response) {
     Article.find({}, function (err, data) {
         response.status(200).json(data)
