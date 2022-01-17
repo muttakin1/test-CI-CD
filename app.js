@@ -31,10 +31,13 @@ app.post('/article/new', function (request, response) {
     })
 })
 
-app.get('/', function (request, response) {
-    console.log("hello world")
-})
-
+app.get("/", async (request, response) => {
+    try {
+        response.status(200).json("Hello world");
+    } catch (err) {
+        console.log(err);
+    }
+});
 app.get('/articles/all', function (request, response) {
     Article.find({}, function (err, data) {
         response.status(200).json(data)
